@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -106,11 +106,58 @@
                         <outlet property="password" destination="WyX-Tb-Awk" id="LIi-Gw-MMR"/>
                         <outlet property="signUpBtn" destination="z1M-RX-Qfq" id="SXI-qR-HDT"/>
                         <outlet property="username" destination="1Nd-ze-Umw" id="KtL-rN-AGK"/>
+                        <segue destination="3wK-Rk-vt2" kind="show" identifier="authentication" id="wNF-Po-EYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1376.5" y="388.5"/>
+        </scene>
+        <!--User list-->
+        <scene sceneID="3zd-er-htZ">
+            <objects>
+                <tableViewController id="NNt-2a-mfX" customClass="UserTableViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OAl-0c-ZgY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="7zQ-1i-NV3">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7zQ-1i-NV3" id="cem-Sq-9en">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NNt-2a-mfX" id="trT-uZ-5MP"/>
+                            <outlet property="delegate" destination="NNt-2a-mfX" id="n6L-ko-hgb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="User list" id="y7X-ck-XEr"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gwh-1y-znX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2218.5" y="388.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1AP-hL-XGi">
+            <objects>
+                <navigationController id="3wK-Rk-vt2" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IgE-B4-t2R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NNt-2a-mfX" kind="relationship" relationship="rootViewController" id="KtT-5g-DWP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFe-tc-q4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794.5" y="388.5"/>
         </scene>
     </scenes>
 </document>

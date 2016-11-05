@@ -52,20 +52,17 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-//        let testObject = PFObject(className: "TestObject")
-//        testObject["foo"] = "bar"
-//        testObject.saveInBackgroundWithBlock { (success, error) -> Void in
-//            if( error != nil ) {
-//                print(error)
-//            } else {
-//                print("Object successfully saved.")
-//            }
-//        }
-
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier("authentication", sender: self)
+        } else {
+            print("Something here")
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,7 +82,7 @@ class ViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
             
                 if error == nil {
-                    // Signup successful
+                    self.performSegueWithIdentifier("authentication", sender: self)
                 } else {
                     if let error = error!.userInfo["error"] as? String {
                         errorMsg = error
@@ -99,7 +96,7 @@ class ViewController: UIViewController {
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
 
                 if user != nil {
-                    // logged in
+                    self.performSegueWithIdentifier("authentication", sender: self)
                 } else {
                     if let error = error!.userInfo["error"] as? String {
                         errorMsg = error
